@@ -4,11 +4,15 @@ const router = require('express').Router()
 const { join } = require('path')
 //bring in node package 'fs'
 const { writeFile, appendFile, readFile } = require('fs')
+//assigning req.body (from POST) a unique ID
+let notesId= 0
+//empty array to push new notes into
+let notesData = []
 
 //get notes
 router.get('/api/notes', (req, res) =>{
   //get notes from database (formatted in JSON) 
-  fs.readFile('../db/db.json', 'utf8')
+  readFile('../db/db.json', 'utf8')
     .then(notesData => {
       //json parse into object
       notesData = JSON.parse(notesData)
@@ -18,11 +22,11 @@ router.get('/api/notes', (req, res) =>{
     .catch(err => console.error(err))
 })
 
-
 //save the notes to database
-// router.post('/api/notes/', (req, res) => {
-  
-// })
+router.post('/api/notes/', (req, res) => {
+  readFile('../db/db.json', 'utf8')
+    .then()
+})
 
 // router.delete()
 // router.delete('api/notes/:id', (req, res) => {
