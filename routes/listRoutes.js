@@ -1,25 +1,33 @@
-//building router
+//building router using node package express
 const router = require('express').Router()
 //bring in path to combine directory paths
 const { join } = require('path')
+//bring in node package 'fs'
+const { writeFile, appendFile, readFile } = require('fs')
 
-//GET index.html using '*'
-// router.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "index.html"))
+//get notes
+router.get('/api/notes', (req, res) =>{
+  //get notes from database (formatted in JSON) 
+  fs.readFile('../db/db.json', 'utf8')
+    .then(notesData => {
+      //json parse into object
+      notesData = JSON.parse(notesData)
+      //sends JSON data
+      res.json(notesData)
+    })
+    .catch(err => console.error(err))
+})
+
+
+//save the notes to database
+// router.post('/api/notes/', (req, res) => {
+  
 // })
-
-// // //GET notes.html using /notes (get ID from start btn)
-// router.get('/notes', (req, res) => {
-//   res.sendFile(join(__dirname, './public/notes.html'))
-// })
-
-// //GET information from getNotes
-// router.get('/api/notes', (req, res) =>{
-//   console.log(req.body)
-// })
-
 
 // router.delete()
+// router.delete('api/notes/:id', (req, res) => {
+
+// })
 
 //export router out to server
 module.exports = router

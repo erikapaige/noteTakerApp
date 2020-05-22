@@ -1,6 +1,6 @@
-//bring in express server
+//bring in express server, using node package express
 const express = require('express')
-//bring in join method from path
+//bring in join method from path, using node package path
 const { join } = require('path')
 //build new express app
 const app = express()
