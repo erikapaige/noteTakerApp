@@ -11,6 +11,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 //bringing in routes from 'routes file'
-app.use(require('./Develop/routes/listRoutes.js'))
+app.use(require('./routes/listRoutes.js'))
 
 app.listen(3000, () => console.log('http://localhost:3000'))
