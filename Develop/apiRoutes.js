@@ -4,13 +4,13 @@ const router = require('express').Router()
 const { join } = require('path')
 //bring in node package 'fs'
 const { writeFile, appendFile, readFile } = require('fs')
-//assigning req.body (from POST) a unique ID
-let notesId= 0
-//empty array to push new notes into
-let notesData = []
+const Notes = require('Notes.js')
+
+const notes = new Notes()
+note.
 
 //get notes
-router.get('/api/notes', (req, res) =>{
+router.get('/api/notes', (req, res) => {
   //get notes from database (formatted in JSON) 
   readFile('../db/db.json', 'utf8')
     .then(notesData => {

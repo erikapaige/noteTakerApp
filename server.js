@@ -12,16 +12,17 @@ app.use(express.json())
 
 //route to index.html, using '*'
 app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, './public/index.html'))
+  res.sendFile(join(__dirname, 'public/index.html'))
 })
 
 //route to notes.html
 app.get('/notes', (req, res) => {
-  res.sendFile(join(__dirname, './public/notes.html'))
+  res.sendFile(join(__dirname, 'public/notes.html'))
 })
 
 //bringing in routes from 'routes file'
 app.use(require('./routes/listRoutes.js'))
+// app.use(require('./routes/apiRoutes.js'))
 
 
 //express listening on the port with call back
