@@ -9,8 +9,8 @@ const wf = promisify(writeFile)
 
 //variable set equal to db
 const notes = require('../db/db.json')
-//assigning req.body (from POST) a unique ID
-let notesId= 0
+// //assigning req.body (from POST) a unique ID
+// let notesId= 0
 
 
 //get notes from database
@@ -29,27 +29,23 @@ router.post('/api/notes', (req, res) => {
   //save data as a variable
   let newNote = req.body
   console.log(newNote)
-  //add a unique id to data
-  req.body.id = notesId
-  //increase uniqueID
-  notesId++
-
+  //add unique ID to new notes
+  newNote.id = notes.length +1
   //send newNote to db
   notes.push(newNote)
   wf ('./db/db.json', JSON.stringify(notes))
     .then(() => res.send(notes))
     .catch(() => console.error(err))
     res.json("complete")
-
   })
 
 
 // router.delete(), use :id to set paramater
-// router.delete('api/notes/:id', (req, res) => {
-//   res.send('test')
-//   //add parameters on req.params
-//   res.json(req.params)
-// })
+router.delete('api/notes/', (req, res) => {
+  console.log(req.params)
+  //add parameters on req.params
+  // res.json(req.params)
+})
 
 //export router out to server
 module.exports = router
