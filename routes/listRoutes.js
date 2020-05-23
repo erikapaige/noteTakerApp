@@ -41,7 +41,12 @@ router.delete('/api/notes/:id', (req, res) => {
   // console.log('click')
   //splice, remove values set in place (remove 1 file)
   notes.splice(req.params.id, 1)
-  
+
+  //re-writing the db file
+  wf('./db/db.json', JSON.stringify(notes))
+    .then(() => res.send(notes))
+    .catch(() => console.error(err))
+  res.json("complete")
 })
 
 //export router out to server

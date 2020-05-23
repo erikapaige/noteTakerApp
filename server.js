@@ -25,5 +25,4 @@ app.get('*', (req, res) => {
 
 
 //express listening on the port with call back
-app.listen(3000, () => console.log('http://localhost:3000'))
-// app.listen(process.env.PORT || 3000, () console.log('http://localhost:3000'))
+app.listen(process.env.PORT || 3000, () => console.log('http://localhost:3000'))
