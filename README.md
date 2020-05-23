@@ -6,7 +6,7 @@ The software used to create this generator include: Javascript, Node.js, NPM Exp
 
 **Please use the below commands to install the NPM dependencies. Upon installation, confirm that Jest and Inquirer were installed. (You can check this in package.json file)**
 <br>
-npm iniit -y
+npm init -y
 <br> if Express did not download, install:
 <br>
 npm i express
