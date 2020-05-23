@@ -6,7 +6,7 @@ const { join } = require('path')
 const app = express()
 
 //build server.js 'boiler plate' (declare middlewear)
-app.use(express.static('public'))
+app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
