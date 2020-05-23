@@ -38,7 +38,10 @@ router.post('/api/notes', (req, res) => {
 
 // router.delete(), use :id to set paramater
 router.delete('/api/notes/:id', (req, res) => {
-  // console.log('click')
+  //check to make sure params return is ID
+  // console.log(req.params)
+
+  let id = parseInt(req.params.id)
   //splice, remove values set in place (remove 1 file)
   notes.splice(req.params.id, 1)
 

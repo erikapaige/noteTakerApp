@@ -13,7 +13,7 @@ app.use(express.json())
 //bringing in routes from 'routes file'
 app.use(require('./routes/listRoutes.js'))
 
-//route to notes.html
+//route to notes.html (using directory path)
 app.get('/notes', (req, res) => {
   res.sendFile(join(__dirname, './public/notes.html'))
 })
