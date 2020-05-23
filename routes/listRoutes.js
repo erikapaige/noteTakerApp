@@ -9,9 +9,6 @@ const wf = promisify(writeFile)
 
 //variable set equal to db
 const notes = require('../db/db.json')
-// //assigning req.body (from POST) a unique ID
-// let notesId= 0
-
 
 //get notes from database
 router.get('/api/notes', (req, res) =>{
@@ -39,12 +36,12 @@ router.post('/api/notes', (req, res) => {
     res.json("complete")
   })
 
-
 // router.delete(), use :id to set paramater
-router.delete('api/notes/', (req, res) => {
-  console.log(req.params)
-  //add parameters on req.params
-  // res.json(req.params)
+router.delete('/api/notes/:id', (req, res) => {
+  // console.log('click')
+  //splice, remove values set in place (remove 1 file)
+  notes.splice(req.params.id, 1)
+  
 })
 
 //export router out to server
