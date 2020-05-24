@@ -17,7 +17,7 @@ npm i express
 Using the link: https://quiet-gorge-31706.herokuapp.com/ users have access to the note taker app. The application works like a digital notepad and allows users to write, save and delete their thoughts or personal reminders.
 
 ## Demo
-<img src="./images/noteTakerApp.gif" width="200" height="100"/>
+![noteTakerAppGif](https://user-images.githubusercontent.com/62817825/82759955-546fd000-9da5-11ea-892c-e106741329c0.gif | width:"100" height:"50")
 
 <br>
 <br>
