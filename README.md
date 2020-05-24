@@ -14,7 +14,7 @@ npm i express
 <br>
 
 ## Usage
-Using the link: https://quiet-gorge-31706.herokuapp.com/ users can have access to a note taker app. The application works like a digital notepad and allows users to write, save and delete their thoughts or personal reminders.
+Using the link: https://quiet-gorge-31706.herokuapp.com/ users have access to the note taker app. The application works like a digital notepad and allows users to write, save and delete their thoughts or personal reminders.
 
 ## Demo
 ![](images/bs.gif)
