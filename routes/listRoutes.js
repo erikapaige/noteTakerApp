@@ -6,9 +6,10 @@ const { join } = require('path')
 const { writeFile, appendFile, readFile } = require('fs')
 const { promisify } = require('util')
 const wf = promisify(writeFile)
+const rf = promisify(readFile)
 
 //variable set equal to db
-const notes = require('../db/db.json')
+let notes = require('../db/db.json')
 
 //get notes from database
 router.get('/api/notes', (req, res) =>{
@@ -41,11 +42,18 @@ router.delete('/api/notes/:id', (req, res) => {
   //check to make sure params return is ID
   // console.log(req.params)
 
-  let id = parseInt(req.params.id)
-  //splice, remove values set in place (remove 1 file)
-  notes.splice(req.params.id, 1)
-
-  //re-writing the db file
+  //filter through notes to make sure only get ones passed
+  let uniqueId = parseInt(req.params.id)
+ 
+  notes = notes.filter((notes) => {
+    if (notes.id === uniqueId){
+      return false
+    } else {
+      return true
+    }
+  })
+ 
+  // re-writing the db file
   wf('./db/db.json', JSON.stringify(notes))
     .then(() => res.send(notes))
     .catch(() => console.error(err))
